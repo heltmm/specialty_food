@@ -16,7 +16,7 @@ p "Created #{User.count} users"
 40.times do
   Product.create!(name: Faker::Food.spice,
                   cost: Faker::Commerce.price,
-                  img: Faker::LoremPixel.image("100x100"),
+                  img: Faker::LoremPixel.image,
                   country_of_origin: Faker::Address.country)
 end
 
