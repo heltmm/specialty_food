@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.column :name, :string
       t.column :cost, :integer
       t.column :country_of_origin, :string
+      t.column :img, :string
 
       t.timestamps
     end
