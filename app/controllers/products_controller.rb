@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
     @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 9) if params[:search].present?
     @products = Product.american.paginate(:page => params[:page], :per_page => 9) if params[:american] === "true"
   end
+  def about
+    @products = Product.three_most_recent
+  end
   def new
     @product = Product.new
   end
@@ -27,7 +30,7 @@ end
 
 private
   def product_params
-    params.require(:product).permit(:name, :cost, :country_of_origin)
+    params.require(:product).permit(:name, :cost, :img, :country_of_origin)
   end
 
 end

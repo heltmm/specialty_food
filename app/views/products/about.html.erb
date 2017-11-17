@@ -1,0 +1,16 @@
+
+<div class="row">
+  <% @products.each do |product| %>
+    <div class='col-md-4'>
+      <div class="card mt-3">
+        <img class="card-img-top" src="<%= product.img %>" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title"><%= product.name %></h4>
+          <p class="card-text"><%= product.country_of_origin %><br> $<%=product.cost%></p>
+          <%= link_to('View', product_path(product), :class => "btn btn-primary")  %>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
