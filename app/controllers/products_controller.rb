@@ -1,9 +1,8 @@
 
 class ProductsController < ApplicationController
   def index
-    @products = Product.three_most_recent
+    @products = Product.paginate(:page => params[:page], :per_page => 3)
   end
-
   def new
     @product = Product.new
   end
