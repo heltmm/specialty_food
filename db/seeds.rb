@@ -20,13 +20,20 @@ p "Created #{User.count} users"
                   country_of_origin: Faker::Address.country)
 end
 
-p "Created #{Product.count} users"
+10.times do
+  Product.create!(name: Faker::Food.spice,
+                  cost: Faker::Commerce.price,
+                  img: Faker::LoremPixel.image,
+                  country_of_origin: "United States of America")
+end
 
-60.times do
+p "Created #{Product.count} products"
+
+250.times do
   Review.create!(content_body: Faker::Hipster.paragraph,
                 rating: Faker::Number.between(1,5),
                 product_id: Faker::Number.between(Product.first.id, Product.last.id),
                 user_id: Faker::Number.between(User.first.id, User.last.id))
 end
 
-p "Created #{Review.count} users"
+p "Created #{Review.count} reviews"

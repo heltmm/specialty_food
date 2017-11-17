@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.paginate(:page => params[:page], :per_page => 9)
     @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 9) if params[:search].present?
+    @products = Product.american.paginate(:page => params[:page], :per_page => 9) if params[:american] === "true"
   end
   def new
     @product = Product.new
