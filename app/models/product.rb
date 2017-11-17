@@ -5,4 +5,6 @@ class Product < ActiveRecord::Base
   validates :cost, :presence => true
   validates :img, :presence => true
   validates :country_of_origin, :presence => true
+
+  scope :three_most_recent, -> { order(created_at: :desc).limit(3)}
 end
