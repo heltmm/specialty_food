@@ -1,8 +1,8 @@
 
 class ProductsController < ApplicationController
   def index
-    @products = Product.paginate(:page => params[:page], :per_page => 3)
-    @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 3) if params[:search].present?
+    @products = Product.paginate(:page => params[:page], :per_page => 9)
+    @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 9) if params[:search].present?
   end
   def new
     @product = Product.new
@@ -20,7 +20,7 @@ end
 
 def show
   @product = Product.find(params[:id])
-  @reviews = @product.reviews
+  @reviews = @product.reviews.three_most_recent
 
 end
 
