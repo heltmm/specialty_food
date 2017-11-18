@@ -6,7 +6,7 @@
 
 ## Description
 
-_Administrators can keep track of animals that are housed at the zoo.  Creating new animals, editing animals, and sorting animals based on age._
+_A spice shop that visitors can view and review spices_
 
 ## User Stories
 
