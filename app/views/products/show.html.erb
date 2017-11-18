@@ -1,13 +1,14 @@
-<h1><%= @product.name %></h1>
-<p><%= @product.cost %></p>
-<p><%= @product.country_of_origin %></p>
-<%= image_tag @product.img %>
-
+<div class="white">
+  <h1><%= @product.name %></h1>
+  <p><%= @product.cost %></p>
+  <p><%= @product.country_of_origin %></p>
+  <%= image_tag @product.img %>
+</div>
 <% if @reviews.any? %>
-  <p>Recent Reviews: </p>
+  <p class="white">Recent Reviews: </p>
   <% @reviews.each do |review| %>
 
-  <div class='card mt-3 bg-secondary'>
+  <div class='card mt-3'>
     <div class='card-body'>
       <p><%=review.content_body %></p>
       <p> - <%= review.user.username %></p>
