@@ -19,6 +19,7 @@ _A spice shop that visitors can view and review spices_
 ## Setup
 
 * _clone from Github. in console run bundle install, rake db:create, rake db:migrate, rake db:seed, rails serve_
+* _in order to add products log in with the admin user, email: test@gmail.com, password: password_
 
 ## Known Bugs
 
