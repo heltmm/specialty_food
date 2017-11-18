@@ -9,11 +9,16 @@
   </head>
 
   <body>
-    <ul class="nav justify-content-end bg-light">
+    <ul class="nav justify-content-end bg-secondary">
     <% if current_user %>
       <li class="nav-item">
         <p class="nav-link">Welcome <%=current_user.username%></p>
       </li>
+      <% if current_user.admin == true %>
+        <li class="nav-item">
+          <a class="nav-link active" href="/products/new">Add Product</a>
+        </li>
+      <% end %>
     <%end%>
     <li class="nav-item">
       <a class="nav-link active" href="/">Home</a>
@@ -21,7 +26,7 @@
     <li class="nav-item">
       <a class="nav-link active" href="/products?american=true">American Products</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item mr-auto">
       <a class="nav-link active" href="/products">Products</a>
     </li>
     <li class="nav-item ">
@@ -31,12 +36,12 @@
       <p class="nav-link"><%= link_to('Login', new_user_session_path)  %></p>
       <% end %>
     </li>
-    <%= form_tag(products_path, :method => "get", :class => "form-inline") do %>
+    <%= form_tag(products_path, :method => "get", :class => "form-inline mr-3") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search Spices" %>
       <%= submit_tag "Search" %>
     <% end %>
   </ul>
-    <div class="container">
+    <div class="container bg-dark pb-2 pt-2">
       <%= yield %>
     </div>
   </body>

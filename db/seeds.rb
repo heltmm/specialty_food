@@ -2,8 +2,9 @@ User.destroy_all
 Product.destroy_all
 Review.destroy_all
 
-#### Create user to manually testing
-User.create!(email: "test@gmail.com", username: "Guy Fieri", password: "password")
+#### Create Admin user for manual testing
+admin_user = User.create!(email: "test@gmail.com", username: "Guy Fieri", password: "password")
+admin_user.update(admin: true)
 
 10.times do
   User.create!(email: Faker::Internet.email,

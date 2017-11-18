@@ -25,7 +25,12 @@ end
 def show
   @product = Product.find(params[:id])
   @reviews = @product.reviews.three_most_recent
+end
 
+def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to products_path
 end
 
 private
