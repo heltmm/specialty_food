@@ -11,4 +11,12 @@ class Product < ActiveRecord::Base
   scope :american, -> { where(country_of_origin: "United States of America")}
 
   scope :search, -> (name_parameter) { where("name like ?", "%#{name_parameter}%")}
+
+  scope :most_reviews, -> {(
+   select("products.id, products.img, products.name, products.cost, products.country_of_origin, count(reviews.id) as reviews_count")
+   .joins(:reviews)
+   .group("products.id")
+   .order("reviews_count DESC")
+   .limit(1)
+   )}
 end

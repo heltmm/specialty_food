@@ -1,4 +1,4 @@
-
+<h2 class="white center">Most Recent Spice:</h2>
 <div class="row">
   <% @products.each do |product| %>
     <div class='col-md-4'>
@@ -8,9 +8,25 @@
           <h4 class="card-title"><%= product.name %></h4>
           <p class="card-text"><%= product.country_of_origin %><br> $<%=product.cost%></p>
           <%= link_to('View', product_path(product), :class => "btn btn-primary")  %>
-
         </div>
       </div>
     </div>
   <% end %>
+</div>
+<h2 class="white center">Most Reviewed Spice:</h2>
+<div class='row'>
+  <div class='col-md-4'>
+  </div>
+  <div class='col-md-4'>
+    <div class="card mt-2 mb-2">
+      <img class="card-img-top" src="<%= @most_reviewed_product.img %>" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title"><%= @most_reviewed_product.name %></h4>
+        <p class="card-text"><%= @most_reviewed_product.country_of_origin %><br> $<%=@most_reviewed_product.cost%></p>
+        <%= link_to('View', product_path(@most_reviewed_product), :class => "btn btn-primary")  %>
+      </div>
+    </div>
+  </div>
+  <div class='col-md-4'>
+  </div>
 </div>

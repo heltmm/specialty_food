@@ -5,9 +5,12 @@ class ProductsController < ApplicationController
     @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 9) if params[:search].present?
     @products = Product.american.paginate(:page => params[:page], :per_page => 9) if params[:american] === "true"
   end
+
   def about
     @products = Product.three_most_recent
+    @most_reviewed_product = Product.most_reviews[0]
   end
+
   def new
     @product = Product.new
   end
