@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
     @products = Product.index(params[:page])
     @products = Product.search(params[:search]) if params[:search].present?
-    @products = Product.american if params[:american] === "true"
+    @products = Product.american(params[:page]) if params[:american] === "true"
   end
 
   def about
