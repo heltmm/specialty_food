@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
 
   scope :american, -> (page) { where(country_of_origin: "United States of America").paginate(:page => page, :per_page => 9)}
 
-  scope :search, -> (name_parameter) { where("name like ?", "%#{name_parameter}%").paginate(:page => params[:page], :per_page => 9)}
+  scope :search, -> (name_parameter, page) { where("name like ?", "%#{name_parameter}%").paginate(:page => page, :per_page => 9)}
 
   scope :most_reviews, -> {(
    select("products.id, products.img, products.name, products.cost, products.country_of_origin, count(reviews.id) as reviews_count")

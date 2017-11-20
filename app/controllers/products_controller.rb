@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   def index
 
     @products = Product.index(params[:page])
-    @products = Product.search(params[:search]) if params[:search].present?
+    @products = Product.search(params[:search], params[:page]) if params[:search].present?
     @products = Product.american(params[:page]) if params[:american] === "true"
   end
 
