@@ -1,3 +1,5 @@
+<h1 class="white center">Marios Spice Shop:</h1>
+<p class="white center"><i>The abosolute best quality spices from all over the world</i></p>
 <h2 class="white center">Most Recent Spices:</h2>
 <div class="row">
   <% @products.each do |product| %>
@@ -6,6 +8,9 @@
         <img class="card-img-top" src="<%= product.img %>" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title"><%= product.name %></h4>
+          <% if @reviews[product.id] %>
+            <p>Average Review: <%= @reviews[product.id].round(2)%></p>
+          <% end %>
           <p class="card-text"><%= product.country_of_origin %><br> $<%=product.cost%></p>
           <%= link_to('View', product_path(product), :class => "btn btn-primary")  %>
         </div>
@@ -22,6 +27,9 @@
       <img class="card-img-top" src="<%= @most_reviewed_product.img %>" alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title"><%= @most_reviewed_product.name %></h4>
+        <% if @reviews[@most_reviewed_product.id] %>
+          <p>Average Review: <%= @reviews[@most_reviewed_product.id].round(2)%></p>
+        <% end %>
         <p class="card-text"><%= @most_reviewed_product.country_of_origin %><br> $<%=@most_reviewed_product.cost%></p>
         <%= link_to('View', product_path(@most_reviewed_product), :class => "btn btn-primary")  %>
       </div>

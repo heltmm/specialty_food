@@ -5,11 +5,13 @@ class ProductsController < ApplicationController
     @products = Product.index(params[:page])
     @products = Product.search(params[:search], params[:page]) if params[:search].present?
     @products = Product.american(params[:page]) if params[:american] === "true"
+    @reviews = Review.group('product_id').average('rating')
   end
 
   def about
     @products = Product.three_most_recent
     @most_reviewed_product = Product.most_reviews[0]
+    @reviews = Review.group('product_id').average('rating')
   end
 
   def new

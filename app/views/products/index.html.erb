@@ -9,6 +9,9 @@
           <img class="card-img-top" src="<%= product.img %>" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title"><%= product.name %></h4>
+            <% if @reviews[product.id] %>
+              <p>Average Review: <%= @reviews[product.id].round(2)%></p>
+            <% end %>
             <p class="card-text"><%= product.country_of_origin %><br> $<%=product.cost%></p>
             <%= link_to('View', product_path(product), :class => "btn btn-primary")  %>
             <%= link_to "Delete", product_path(product), :class => "btn btn-danger",
