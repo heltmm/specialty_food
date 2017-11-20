@@ -31,7 +31,7 @@ end
 p "Created #{Product.count} products"
 
 250.times do
-  Review.create!(content_body: Faker::Hipster.paragraph,
+  Review.create!(content_body: Faker::Hipster.paragraph[0..249],
                 rating: Faker::Number.between(1,5),
                 product_id: Faker::Number.between(Product.first.id, Product.last.id),
                 user_id: Faker::Number.between(User.first.id, User.last.id))
