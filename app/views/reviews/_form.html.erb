@@ -1,3 +1,5 @@
+<%= render "layouts/errors", :object => @reviews %>
+
 <%= form_for [@product, @review] do |f| %>
   <%= f.label "Review" %>
   <%= f.text_area :content_body %>
